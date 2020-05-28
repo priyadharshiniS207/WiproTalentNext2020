@@ -1,0 +1,42 @@
+         program 28.5
+        
+      basic languages
+
+1.public class Main
+
+{
+
+public static void main(String args[])
+
+{
+
+System.out.println(args[0] + “ technologies ”);
+
+System.out.println(args[1]);
+
+}
+
+}
+
+
+2.public class Main{
+public static void main(String[] args) {
+
+System.out.println("Welcome" + args[0]);
+
+}
+}
+
+3.public class Main{
+
+public static void main(String[] args) {
+
+int a = Integer.parseInt(args[0]);
+int b = Integer.parseInt(args[1]);
+int c = a + b;
+
+System.out.printf("The sum of %d and %d is ", a, b, c);
+
+}
+
+}

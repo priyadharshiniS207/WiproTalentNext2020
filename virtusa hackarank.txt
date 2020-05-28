@@ -1,0 +1,75 @@
+               VIRTUSA HACKRANK
+
+
+ 1. FACTOR 
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+class Result {
+
+    /*
+     * Complete the 'pthFactor' function below.
+     *
+     * The function is expected to return a LONG_INTEGER.
+     * The function accepts following parameters:
+     *  1. LONG_INTEGER n
+     *  2. LONG_INTEGER p
+     */
+
+    public static long pthFactor(long n, long p) {
+    int i, fact=1;
+    int temp;
+    int a[]=new a[10];
+
+    for(i=1;i<=n;i++);
+    {
+       fact=fact*i;
+    }
+    for(i=0;i<=fact;i++)
+    {
+        if(a[i]>a[i+1])
+        {
+           temp=a[i];
+           a[i]=a[i+1];
+           a[i+1]=temp;
+        }
+        int fact=a.get(p);
+    }
+    }
+
+2. FIZZ BUZZ
+
+import java.util.*; 
+class FizzBuzz 
+{ 
+    public static void main(String args[]) 
+    {  Scanner s=new Scanner(System.in)
+
+       int n=s.nextInt();
+        
+        for (int i=1; i<=n; i++)                                  
+        { 
+            if (i%3==0)&&(i%5==0)                                                
+                System.out.print("FizzBuzz");  
+           
+            else if (i%5==0)      
+                System.out.print("Buzz"+" ");  
+  
+       
+            else if (i%3==0)      
+                System.out.print("Fizz");  
+  
+        
+                  
+            else 
+                System.out.print(i);                          
+        } 
+    } 
+} 
