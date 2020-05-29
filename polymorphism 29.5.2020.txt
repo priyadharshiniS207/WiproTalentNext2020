@@ -1,0 +1,113 @@
+        POLYMORPHISM 29.5.2020
+
+
+
+
+1.class Fruit
+{
+    String name,taste,size;
+    Fruit(String n,String t,String s)
+    {
+        name = n;
+        taste =t;
+        size =s;
+    }
+    void eat()
+    {
+        System.out.print(name+" "+taste);
+    }
+
+}
+class Apple extends Fruit
+{
+    Apple(String n,String t,String s)
+    {
+    super(n,t,s);
+    
+}
+@Override
+void eat()
+{
+      System.out.print(name+" "+taste);
+}
+}
+class Orange extends Fruit
+{
+    Orange(String n,String t,String s)
+    {
+    super(n,t,s);
+    }
+ @Override
+void eat()
+{
+      System.out.print(name+" "+taste);
+}  
+    
+}
+class Fruitcheck
+{
+    public static void main(String args[])
+    {
+        Apple a =  new Apple("Apple","Sweet","Heart");
+        Orange o =  new Orange("Orange","Sweet","Round");
+        a.eat();
+        o.eat();
+    }
+}
+    
+    
+2.
+
+class Shape{
+   void draw(){
+      System.out.println("Drawing Shape");
+   }
+   void erase(){
+     System.out.println("Erasing shapes");
+   }
+  }
+class Circle extends Shape{
+ @override
+ void draw()
+{
+  System.out.println("Drawing Circle");
+}
+void erase(){
+   System.out.println("Erasing circle");
+}
+}
+  class Triangle extends Shape{
+  @override
+  void draw(){
+   System.out.println("Drawing Triangle");
+}
+  void erase(){
+   System.out.println("Erasing Traingle");
+}
+
+class Square extends Shape{
+ @override
+ void draw()
+{
+  System.out.println("Drawing Square");
+}
+void erase()
+{
+  System.out.println("Erasing Squares");
+}
+}
+public class Polymorphism{
+  public static void main(String[]args)
+  {
+   Shape c=new Circle();
+   Shape t=new Triangle();
+   Shape s= new Square();
+   c.draw();
+   c.erase();
+   t.draw();
+    t.erase();
+    s.draw();
+    s.erase();
+}
+}
+
