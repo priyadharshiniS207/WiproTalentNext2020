@@ -1,0 +1,431 @@
+                                        29.5.2020 programs
+
+1.CHECH STRING IS PALINDROME OR NOT
+
+import java.util.*;
+
+public class Main
+{
+
+	public static void main(String[] args) {
+	
+    Scanner sc=new Scanner(System.in);
+	  
+  System.out.println("enter string");
+	
+	String str=sc.nextLine();
+	
+	String reverse=new StringBuffer(str).reverse().toString();
+		
+if(str.equals(reverse))
+		
+{
+		  
+  System.out.println("palindrome");
+		
+}
+		
+else
+{
+		 
+   System.out.println("not a palindrome");
+		
+}
+	
+}
+
+
+2.cONCATINATE
+
+import java.util.*;
+
+public class Main
+{
+
+	public static void main(String[] args) {
+
+	    Scanner sc=new Scanner(System.in);
+	 
+   System.out.println("enter string1");
+	 
+   System.out.println("enter string2");
+		
+   String str1=sc.nextLine();
+		
+    String str2=sc.nextLine();
+	
+	
+   String str3=str1.concat(str2);
+		
+		
+System.out.println(str3.toLowerCase());
+		
+}
+	
+}
+
+
+4. even 
+
+import java.util.*;
+
+public class Main
+{
+
+	public static void main(String[] args) {
+
+    Scanner sc=new Scanner(System.in);
+   
+ System.out.println("enter string");
+   
+ String str= sc.nextLine();
+   
+ String bcd=null;
+       
+ int lenght=str.length();
+        
+int n=lenght/2;
+        
+if(lenght%2==0)
+        
+{ 
+  bcd="";
+          
+  for(int i=0;i<n;i++){
+  
+              bcd=bcd+str.charAt(i);
+            
+   
+            }
+          
+  System.out.print(bcd);
+      
+  }
+       
+ else
+    
+    System.out.println(bcd);
+       
+ sc.close();
+   
+ }
+
+
+}
+
+
+3.
+
+import java.util.*;
+
+public class Main
+{
+	
+public static void main(String[] args) {
+  
+  Scanner sc=new Scanner(System.in);
+    
+System.out.println("enter string");
+   
+ String str= sc.nextLine();
+   
+ String bcd="";
+        
+int g=str.length();
+       
+ if(g<=1)
+       
+ {
+            
+bcd=str;
+        
+}
+       
+ else
+{
+      
+      for(int i=0;i<g;i++)
+   
+         {
+             
+ bcd=bcd+str.charAt(0)+str.charAt(1);
+  
+          }
+       
+ }    
+      
+  System.out.println(bcd);
+
+}
+}
+
+
+
+
+6.Given 2 strings, a and b, return a string of the form short+long+short, with the shorter string on
+the outside and the longer string on the inside. The strings will not be the same length, but they
+may be empty (length 0). If input is "hi" and "hello", then output will be "hihellohi".
+
+
+import java.util.*;
+
+public class Main
+{
+	
+public static void main(String[] args) {
+   
+ Scanner sc=new Scanner(System.in);
+  
+  String str3;
+    
+System.out.println("enter string1");
+  
+  System.out.println("enter string2");
+  
+  String str1= sc.nextLine();
+   
+ String str2=sc.nextLine();
+    
+int d=str1.length();
+   
+ int g=str2.length();
+   
+ if(str2.length()<str1.length())
+   
+ {
+        
+str3=str2+str1+str2;
+   
+ }
+   
+ else
+    
+{
+      
+  str3=str1+str2+str1;
+ 
+   }
+  
+   System.out.println(str3);
+  
+  }
+}
+
+
+
+
+7.
+
+import java.util.*;
+
+public class Main
+{
+	
+public static void main(String[] args) {
+	
+	Scanner sc=new Scanner(System.in);
+
+		String str=sc.nextLine();
+  
+      int len=str.length();
+        
+if(str.charAt(0)=='x')
+{
+            
+str=str.substring(1, len);
+           
+ len=str.length();
+       
+ }
+       
+ if(str.charAt(len-1)=='x')
+      
+      str=str.substring(0, len-1);
+ 
+   System.out.print(str);
+      
+}
+}
+
+
+
+5.
+import java.util.*;
+
+public class Main
+{
+
+
+public static void main(String[] args) {
+
+String str = "Wipro";
+
+str = str.substring(1, str.length() - 1);
+
+System.out.println(str);
+
+
+}
+
+}
+
+
+8.
+
+import java.util.*;
+public class Main{
+public static void main(String[] args)
+String str1 = "Wipro";
+String str2 = "X";
+int separator = 3;
+StringBuffer sb = new StringBuffer();
+for (int i = 0 ; i< separator - 1; i++)
+sb.append(str1).append(str2);
+sb.append(str1);
+System.out.println(sb);
+}
+}
+
+
+9.
+
+import java.util.*;
+public class Main
+{
+	
+public static void main(String[] args) {
+	
+	String str = "ab*cd";
+
+String[] strs = str.split(".[\\*]+.");
+
+StringBuffer sb = new StringBuffer();
+
+for (String x : strs)
+sb.append(x);
+
+
+System.out.println(sb);
+
+}
+
+}
+
+
+10.
+
+import java.util.*;
+
+public class Main{
+
+	public static void main(String[] args) {
+		
+       String a = "Helloo";
+
+       String b = "World123abc";
+
+
+       String bigger = a.length() > b.length() ? a : b;
+       
+String smaller = a.length() < b.length() ? a : b;
+
+       StringBuffer sb = new StringBuffer();
+       
+for (int i = 0; i < smaller.length(); i++) 
+      { 
+      
+
+sb.append(a.charAt(i)).append(b.charAt(i));
+     
+} 
+     
+sb.append(bigger.substring(smaller.length(), bigger.length())); 
+      
+System.out.println(sb);
+	
+     }
+}
+
+
+
+
+
+11.
+
+
+import java.util.*;
+public class Main
+{
+
+public static void main(String[] args) {
+String a = "abc";
+String b = "xyz";
+String bigger = a.length() > b.length() ? a : b;
+String smaller = a.length()< b.length() ? a : b;
+
+StringBuffer sb = new StringBuffer();
+for (int i = 0; i <smaller.length(); i++) {
+
+sb.append(a.charAt(i)).append(b.charAt(i));
+}
+sb.append(bigger.substring(smaller.length(), bigger.length()));
+System.out.println(sb);
+}
+
+
+12.
+
+import java.util.*;
+public class Main{
+public static void main(String[] args) {
+String str = "Wipro";
+int n = 3;
+StringBuffer sb = new StringBuffer();
+for (int i = 0; i < n; i++) {
+sb.append(str.substring(str.length() - n));
+}
+System.out.println(sb);
+}
+}
+
+
+
+13.
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+public class Main{
+public static void main(String[] args) {
+String str1 = "abcXY123XYijk"; 
+String str2 = "XY";
+StringBuffer sb = new StringBuffer();
+while (str1.indexOf(str2) != -1) {
+int index = str1.indexOf(str2);
+if (index == 0 && index + str2.length() < str1.length() - 1) {
+sb.append(str1.charAt(index + str2.length()));
+str1 = str1.replaceFirst(str2, "");
+continue;
+}
+if (index - 1 >= 0 &&index + str2.length() >= str1.length()) {
+sb.append(str1.charAt(index - 1));
+str1 = str1.replaceFirst(str2, "");
+continue;
+}
+if (index + str2.length() < str1.length() - 1 &&index - 1 >= 0) {
+sb.append(str1.charAt(index - 1));
+sb.append(str1.charAt(index + str2.length()));
+str1 = str1.replaceFirst(str2, "");
+}
+}
+
+System.out.println(sb);
+
+}
+
+}
+
+
+14.
+}
