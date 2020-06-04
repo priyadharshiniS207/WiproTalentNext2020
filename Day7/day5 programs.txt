@@ -1,0 +1,135 @@
+                      mile stone 1 
+
+
+day 5 programs
+
+
+
+
+1.is N an exact multiple of M
+
+import java.io.*;
+import java.util.*;
+class UserMainCode{
+public int isMultiple(int input1,int input2)
+{
+  if(input1%input2==0)
+    return 2;
+    else
+     return 1;
+      }
+ }
+
+
+
+2.EVEN ODD
+
+import java.io.*;
+import  java.util.*;
+class UserMainCode
+{
+	public int countEvensOdds(int input1,int input2,int input3,int input4,int input5,String input6)
+
+int arr[]= new int[5];
+		int ecount=0,ocount=0;
+		
+		arr[0]=input1;
+		arr[1]=input2;
+		arr[2]=input3;
+		arr[3]=input4;
+		arr[4]=input5;
+		String s= new String("even");
+
+		if(s==input6)
+		{
+		
+			for(int i=0;i<5;i++)
+			{
+			
+				if(arr[i]%2==0)
+				{
+				ecount++;
+				}
+			
+			
+			}
+			return ecount;
+		}
+		else
+		{
+		for(int i=0;i<5;i++)
+			{
+			
+				if(arr[i]%2!=0)
+				{
+				ocount++;
+				}
+			
+			
+			}
+			return ocount;
+		}
+	}
+}
+
+
+
+
+3.EVEN COUNT
+
+
+import java.io.*;
+import  java.util.*;
+class UserMainCode
+{
+public int countEvens(int input1,int input2,int input3,int input4,int input5){
+int arr[]= new int[5];
+		int count=0;
+		arr[0]=input1;
+		arr[1]=input2;
+		arr[2]=input3;
+		arr[3]=input4;
+		arr[4]=input5;
+		for(int i=0;i<5;i++)
+		{
+			if(arr[i]%2==0)
+			{
+				count++;
+				
+				
+			}
+			
+		}
+		return count;
+	}
+}
+
+
+
+4.ODD COUNT
+
+import java.io.*;
+import  java.util.*;
+class UserMainCode
+{
+public int countEvens(int input1,int input2,int input3,int input4,int input5){
+int arr[]= new int[5];
+		int count=0;
+		arr[0]=input1;
+		arr[1]=input2;
+		arr[2]=input3;
+		arr[3]=input4;
+		arr[4]=input5;
+		for(int i=0;i<5;i++)
+		{
+			if(arr[i]%2!=0)
+			{
+				count++;
+				
+				
+			}
+			
+		}
+		return count;
+	}
+}
