@@ -1,0 +1,305 @@
+      hackerank 9.6.20
+
+
+
+1.price count
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+
+class Result {
+
+    /*
+     * Complete the 'priceCheck' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. STRING_ARRAY products
+     *  2. FLOAT_ARRAY productPrices
+     *  3. STRING_ARRAY productSold
+     *  4. FLOAT_ARRAY soldPrice
+     */
+    
+
+    public static int priceCheck(List<String> products, List<Float> productPrices, List<String> productSold, List<Float> soldPrice) {
+    // Write your code here
+    
+      int count = 0;
+        for (String aItems : productSold) {
+            int pro = products.indexOf(aItems);
+            float prop = productPrices.get(pro);
+            int x = productSold.indexOf(aItems);
+            if (prop != soldPrice.get(x)) {
+                count++;
+            }
+        }
+        return(count);
+
+    }
+
+    private static List addFloatsToArray(float[] a) {
+        List<Float> l = new ArrayList<>();
+        for (float f : a) {
+            l.add(f);
+        }
+        return l;
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int productsCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<String> products = new ArrayList<>();
+
+        for (int i = 0; i < productsCount; i++) {
+            String productsItem = bufferedReader.readLine();
+            products.add(productsItem);
+        }
+
+        int productPricesCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Float> productPrices = new ArrayList<>();
+
+        for (int i = 0; i < productPricesCount; i++) {
+            float productPricesItem = Float.parseFloat(bufferedReader.readLine().trim());
+            productPrices.add(productPricesItem);
+        }
+
+        int productSoldCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<String> productSold = new ArrayList<>();
+
+        for (int i = 0; i < productSoldCount; i++) {
+            String productSoldItem = bufferedReader.readLine();
+            productSold.add(productSoldItem);
+        }
+
+        int soldPriceCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Float> soldPrice = new ArrayList<>();
+
+        for (int i = 0; i < soldPriceCount; i++) {
+            float soldPriceItem = Float.parseFloat(bufferedReader.readLine().trim());
+            soldPrice.add(soldPriceItem);
+        }
+
+        int result = Result.priceCheck(products, productPrices, productSold, soldPrice);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+
+2. bob navigate a maze
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+class Result {
+
+    /*
+     * Complete the 'minMoves' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. 2D_INTEGER_ARRAY maze
+     *  2. INTEGER x
+     *  3. INTEGER y
+     */
+
+    public static int minMoves(List<List<Integer>> maze, int x, int y) {
+    // Write your code here
+         static int countPaths(int maze[][])
+         {
+        // If the initial cell is blocked,  
+        // there is no way of moving anywhere 
+        if (maze[0][0]==-1) 
+            return 0; 
+      
+        // Initializing the leftmost column 
+        for (int i = 0; i < x; i++) 
+        { 
+            if (maze[i][0] == 0) 
+                maze[i][0] = 1; 
+      
+            // If we encounter a blocked cell  
+            // in leftmost row, there is no way  
+            // of visiting any cell directly below it. 
+            else
+                break; 
+        } 
+      
+        // Similarly initialize the topmost row 
+        for (int i =1 ; i< y ; i++) 
+        { 
+            if (maze[0][i] == 0) 
+                maze[0][i] = 1; 
+      
+            // If we encounter a blocked cell in  
+            // bottommost row, there is no way of  
+            // visiting any cell directly below it. 
+            else
+                break; 
+        } 
+      
+        // The only difference is that if a cell  
+        // is -1, simply ignore it else recursively  
+        // compute count value maze[i][j] 
+        for (int i = 1; i < x; i++) 
+        { 
+            for (int j = 1; j <y ; j++) 
+            { 
+                // If blockage is found,  
+                // ignore this cell  
+                if (maze[i][j] == -1) 
+                    continue; 
+      
+                // If we can reach maze[i][j] from  
+                // maze[i-1][j] then increment count. 
+                if (maze[i - 1][j] > 0) 
+                    maze[i][j] = (maze[i][j] +  
+                                 maze[i - 1][j]); 
+      
+                // If we can reach maze[i][j] from 
+                //  maze[i][j-1] then increment count. 
+                if (maze[i][j - 1] > 0) 
+                    maze[i][j] = (maze[i][j] +  
+                                  maze[i][j - 1]); 
+            } 
+        } 
+      
+        // If the final cell is blocked,  
+        // output 0, otherwise the answer 
+        return (maze[R - 1][C - 1] > 0) ?  
+                maze[R - 1][C - 1] : 0; 
+    } 
+    }
+
+}
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int mazeRows = Integer.parseInt(bufferedReader.readLine().trim());
+        int mazeColumns = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<List<Integer>> maze = new ArrayList<>();
+
+        for (int i = 0; i < mazeRows; i++) {
+            String[] mazeRowTempItems = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+            List<Integer> mazeRowItems = new ArrayList<>();
+
+            for (int j = 0; j < mazeColumns; j++) {
+                int mazeItem = Integer.parseInt(mazeRowTempItems[j]);
+                mazeRowItems.add(mazeItem);
+            }
+
+            maze.add(mazeRowItems);
+        }
+
+        int x = Integer.parseInt(bufferedReader.readLine().trim());
+
+        int y = Integer.parseInt(bufferedReader.readLine().trim());
+
+        int result = Result.minMoves(maze, x, y);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+
+3.price sort
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+class Result {
+
+    /*
+     * Complete the 'itemsSort' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts INTEGER_ARRAY items as parameter.
+     */
+
+    public static List<Integer> itemsSort(List<Integer> items) {
+    // Write your code here
+    List<Integer> items= new ArrayList<>(); 
+       items.add(4); 
+        items.add(5); 
+        items.add(6); 
+         items.add(5); 
+        items.add(4); 
+         items.add(3);
+        /* Collections.sort method is sorting the 
+        elements of ArrayList in ascending order. */
+        Collections.sort(items); 
+        for(int i=0;i<items.size();i++)
+    {
+       System.out.println(items.get(i));
+    }
+    }
+}
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int itemsCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> items = new ArrayList<>();
+
+        for (int i = 0; i < itemsCount; i++) {
+            int itemsItem = Integer.parseInt(bufferedReader.readLine().trim());
+            items.add(itemsItem);
+        }
+
+        List<Integer> result = Result.itemsSort(items);
+
+        for (int i = 0; i < result.size(); i++) {
+            bufferedWriter.write(String.valueOf(result.get(i)));
+
+            if (i != result.size() - 1) {
+                bufferedWriter.write("\n");
+            }
+        }
+
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
