@@ -1,0 +1,133 @@
+      hackerrank 13.6.20
+
+1.last and second last
+
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+
+class Result {
+
+    /*
+     * Complete the 'lastLetters' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING word as parameter.
+     */
+
+    public static String lastLetters(String word) {
+    // Write your code here
+       String[] words = word.split(" ");
+    String reversedString = "";
+    for (int i = 0; i < words.length; i++)
+        {
+         word = words[i]; 
+           String reverseWord = "";
+           for (int j = word.length()-1; j >= 0; j--) 
+       {
+        /* The charAt() function returns the character
+         * at the given position in a string
+         */
+        reverseWord = reverseWord + word.charAt(j);
+       }
+       reversedString = reversedString + reverseWord + " ";
+    }
+    
+    return (reversedString.charAt(0)+" "+reversedString.charAt(1));
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String word = bufferedReader.readLine();
+
+        String result = Result.lastLetters(word);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+
+
+
+2. SIMPLE PARANTHESIS CHECKING
+
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+
+
+    // Complete the braces function below.
+
+
+      static String[]braces(String[] values){
+       for(int i =0;i<values.length();i++)
+    {
+        if(values[i] == '(' || values[i] == '{' || values[i] == '[')
+            S.push(values[i]);
+        else if(values[i] == ')' || values[i] == '}' || values[i] == ']')
+        {
+            if(S.empty() || !ArePair(S.top(),values[i]))
+                return false;
+            else
+                S.pop();
+        }
+    }
+    return S.empty() ? YES:NO;
+}
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int valuesCount = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        String[] values = new String[valuesCount];
+
+        for (int i = 0; i < valuesCount; i++) {
+            String valuesItem = scanner.nextLine();
+            values[i] = valuesItem;
+        }
+
+        String[] res = braces(values);
+
+        for (int i = 0; i < res.length; i++) {
+            bufferedWriter.write(res[i]);
+
+            if (i != res.length - 1) {
+                bufferedWriter.write("\n");
+            }
+        }
+
+        bufferedWriter.newLine();
+
+        bufferedWriter.close();
+
+        scanner.close();
+    }
+}
