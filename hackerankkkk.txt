@@ -1,0 +1,59 @@
+   hckrerankk
+
+
+1,long cMin = 1000000;
+
+long rMin = 1000000;
+
+for(int i = 0 ; i < upRight.size(); i++)
+
+ {
+  String[] cAndR = upRight.get(i).split(" ", 2);
+ 
+long c = Integer.parseInt(cAndR[0]);
+ 
+if(c < cMin) {cMin = c;
+}
+long r = Integer.parseInt(cAndR[1]);
+
+ if(r < rMin) {rMin = r;
+}
+}
+
+ return rMin*cMin;
+
+
+3. even no within given range
+
+i=0;
+   
+ list=[];
+   
+ while(i<n):
+     
+   if(start%2==0):
+          
+     list.append(start);
+       
+     start
+     i+=1
+           
+     continue;
+        
+     start+=1;
+    
+ return list;
+
+
+2.frequncy of numbers
+
+int cnt = 0;
+        HashSet<Integer> h = new HashSet<Integer>(numbers);
+ 
+        for (int token : h)
+        {
+            if (Collections.frequency(numbers, token) > 1)
+                cnt++;
+        }
+         
+        return cnt;

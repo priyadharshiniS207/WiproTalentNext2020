@@ -1,0 +1,148 @@
+      hackerank day 20
+
+
+1.count duplicate elements
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+class Result {
+
+    /*
+     * Complete the 'countDuplicate' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts INTEGER_ARRAY numbers as parameter.
+     */
+
+    public static int countDuplicate(List<Integer> numbers) {
+    // Write your code here
+      int cnt = 0;
+        HashSet<Integer> hs = new HashSet<Integer>(numbers);
+ 
+        for (int token : hs)
+        {
+            if (Collections.frequency(numbers, token) > 1)
+                cnt++;
+        }
+         
+        return cnt;
+     }
+    }
+
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int numbersCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> numbers = new ArrayList<>();
+
+        for (int i = 0; i < numbersCount; i++) {
+            int numbersItem = Integer.parseInt(bufferedReader.readLine().trim());
+            numbers.add(numbersItem);
+        }
+
+        int result = Result.countDuplicate(numbers);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+
+2,list if even integer
+
+def even(start, n):
+    # write your code here
+    a=0;
+    list=[];
+    while(a<n):
+        if(start%2==0):
+         list.append(start);
+         start+=2;
+         a+=1
+         continue;
+        start+=1;
+    return list;
+        
+
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    start, n = map(int, raw_input().split())
+    res = even(start, n)
+    assert type(res) == list
+    fptr.write(" ".join(map(str, res)) + '\n')
+    fptr.close()
+    
+
+3,growth in 2d dimensuions
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+
+class Result {
+
+    /*
+     * Complete the 'countMax' function below.
+     *
+     * The function is expected to return a LONG_INTEGER.
+     * The function accepts STRING_ARRAY upRight as parameter.
+     */
+
+    public static long countMax(List<String> upRight) {
+    // Write your code here
+     long cMin = 1000000;
+     long rMin = 1000000;
+     for(int i = 0 ; i < upRight.size(); i++)
+     {String[] cAndR = upRight.get(i).split(" ", 2);
+      long c = Integer.parseInt(cAndR[0]);
+      if(c < cMin) {cMin = c;}long r = Integer.parseInt(cAndR[1]);
+      if(r < rMin) {rMin = r;}}
+      return rMin*cMin;
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int upRightCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<String> upRight = new ArrayList<>();
+
+        for (int i = 0; i < upRightCount; i++) {
+            String upRightItem = bufferedReader.readLine();
+            upRight.add(upRightItem);
+        }
+
+        long result = Result.countMax(upRight);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}

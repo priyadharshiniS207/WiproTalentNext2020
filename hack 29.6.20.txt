@@ -1,0 +1,30 @@
+   hackerank 29.6.20
+
+
+1.cirular printer
+
+// Write your code here
+     char ch='A';
+    long x=0;
+    for(int i=0;i<s.length();i++){
+        int y=Math.abs(ch-s.charAt(i));
+        if(y<13){
+            x+=y;
+            ch=s.charAt(i);
+        }
+        else{
+            x+=26-y;
+            ch=s.charAt(i);
+        }
+    }
+    return x;
+    }
+
+
+2, return or raise value eror
+
+ mul=a*b;
+    if(mul<=bound):
+        return mul
+    else:
+        raise ValueError('multiplication of %d and %d with bound %d not possible' %(a,b,bound))
